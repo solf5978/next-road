@@ -10,8 +10,7 @@ type TicketEditPageProps = {
 };
 
 const TicketEditPage = async ({ params }: TicketEditPageProps) => {
-  const _ = await params;
-  const ticket = await getTicket(_.slugNo);
+  const ticket = await getTicket(params.slugNo);
 
   if (!ticket) {
     return notFound();
