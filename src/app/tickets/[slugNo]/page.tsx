@@ -3,14 +3,12 @@ import TicketItem from "@/components/ticket/ticket-item";
 import { notFound } from "next/navigation";
 
 type TicketPageProps = {
-  params: {
-    slugNo: string;
-  };
+  slugNo: string;
 };
 
-const TicketPage = async ({ params }: TicketPageProps) => {
+const TicketPage = async ({ slugNo }: TicketPageProps) => {
   // const _ = await params;
-  const ticket = await getTicket(params.slugNo);
+  const ticket = await getTicket(slugNo);
 
   if (!ticket) {
     return notFound();

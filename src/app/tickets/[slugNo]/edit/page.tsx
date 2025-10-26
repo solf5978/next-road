@@ -4,13 +4,11 @@ import { TicketUpsertForm } from "@/components/ticket/ticket-upsert-form";
 import { notFound } from "next/navigation";
 
 type TicketEditPageProps = {
-  params: {
-    slugNo: string;
-  };
+  slugNo: string;
 };
 
-const TicketEditPage = async ({ params }: TicketEditPageProps) => {
-  const ticket = await getTicket(params.slugNo);
+const TicketEditPage = async ({ slugNo }: TicketEditPageProps) => {
+  const ticket = await getTicket(slugNo);
 
   if (!ticket) {
     return notFound();
